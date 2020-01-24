@@ -6,7 +6,9 @@ export default class QuoteSearcher extends Component {
     loading: true,
     error: false,
     quotes: [],
-    quoteCount: 0
+    quoteCount: 0,
+    totalLike: 0,
+    totalDislike: 0
   };
   componentDidMount = async () => {
     try {
@@ -25,6 +27,12 @@ export default class QuoteSearcher extends Component {
       });
     }
   };
+  increaseTotalLike = () =>
+    this.setState({ totalLike: this.state.totalLike + 1 });
+
+  increaseTotalDislike = () =>
+    this.setState({ totalDislike: this.state.totalDislike + 1 });
+
   render() {
     console.log(this.state.quotes);
 
@@ -32,7 +40,14 @@ export default class QuoteSearcher extends Component {
       <div>Data Loading</div>
     ) : (
       <div>
-        <Quote quotes={this.state.quotes} quoteCount={this.state.quoteCount} />{" "}
+        <p>Total number of Like: {this.state.totalLike}</p>
+        <p>Total number of Dislike: {this.state.totalDislike}</p>
+        <Quote
+          increaseTotalLike={this.increaseTotalLike}
+          increaseTotalDislike={this.increaseTotalDislike}
+          quotes={this.state.quotes}
+          quoteCount={this.state.quoteCount}
+        />{" "}
       </div>
     );
   }
