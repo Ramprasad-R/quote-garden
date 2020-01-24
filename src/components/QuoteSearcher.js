@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Quote from "./Quote";
 
 export default class QuoteSearcher extends Component {
   state = {
@@ -30,7 +31,9 @@ export default class QuoteSearcher extends Component {
     return this.state.loading ? (
       <div>Data Loading</div>
     ) : (
-      <div>{this.state.quoteCount}</div>
+      <div>
+        <Quote quotes={this.state.quotes} quoteCount={this.state.quoteCount} />{" "}
+      </div>
     );
   }
 }
