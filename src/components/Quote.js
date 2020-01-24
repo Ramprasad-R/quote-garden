@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Quote.css";
 const Quote = props => {
   const { quotes, quoteCount } = props;
+  // const [quoteColor, setQuoteColor] = useState("");
   const likeClicked = event => {
     console.log("LikeClicked", event.target.id);
+    document.getElementById(event.target.id).style.color = "green";
+    //setQuoteColor("green");
     props.increaseTotalLike();
   };
   const dislikeClicked = event => {
-    console.log("DislikeClicked", event.target.id);
+    console.log("DislikeClicked", event);
+    document.getElementById(event.target.id).style.color = "red";
+    // setQuoteColor("red");
     props.increaseTotalDislike();
   };
   return (
@@ -20,7 +26,7 @@ const Quote = props => {
           quotes.map(quote => {
             return (
               <div>
-                <div id={quote._id} key={quote._id}>
+                <div style={{ color: "black" }} id={quote._id} key={quote._id}>
                   <p>{quote.quoteText}</p>
                   <p>By: {quote.quoteAuthor}</p>
                 </div>

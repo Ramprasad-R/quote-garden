@@ -1,0 +1,9 @@
+.likeClicked {
+  color: green;
+  font-weight: bold;
+}
+
+.dislikeClicked {
+  color: red;
+  font-weight: lighter;
+}
