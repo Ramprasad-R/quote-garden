@@ -10,12 +10,14 @@ export default class QuoteSearcher extends Component {
     quoteCount: 0,
     totalLike: 0,
     totalDislike: 0,
-    fetchQuoteUrl: "https://quote-garden.herokuapp.com/quotes/all"
+    searchQuoteUri: "tree"
   };
 
   invokeAPIToFetchQuote = async () => {
     try {
-      const quoteData = await fetch(this.state.fetchQuoteUrl);
+      const quoteData = await fetch(
+        `https://quote-garden.herokuapp.com/quotes/search/${this.state.searchQuoteUri}`
+      );
       const parsedQuoteData = await quoteData.json();
       this.setState({
         loading: false,
@@ -41,7 +43,7 @@ export default class QuoteSearcher extends Component {
 
     this.setState(
       {
-        fetchQuoteUrl: `https://quote-garden.herokuapp.com/quotes/search/${searchText}`,
+        searchQuoteUri: searchText,
         loading: true
       },
       () => {
@@ -49,7 +51,11 @@ export default class QuoteSearcher extends Component {
       }
     );
 
-    console.log("Trigger Search", this.state.fetchQuoteUrl, this.state.loading);
+    console.log(
+      "Trigger Search",
+      this.state.searchQuoteUri,
+      this.state.loading
+    );
   };
   render() {
     console.log(this.state.quotes);
