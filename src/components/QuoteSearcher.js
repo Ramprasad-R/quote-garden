@@ -75,14 +75,14 @@ export default class QuoteSearcher extends Component {
             </li>
             <li>
               <div class="collapsible-header">
-                <i class="material-icons">thumb_up</i>
+                <i class="material-icons thumb-up">thumb_up</i>
                 Total Likes
                 <span class="badge">{this.state.totalLike}</span>
               </div>
             </li>
             <li>
               <div class="collapsible-header">
-                <i class="material-icons ">thumb_down</i>
+                <i class="material-icons thumb-down">thumb_down</i>
                 Total Dislikes
                 <span class="badge">{this.state.totalDislike}</span>
               </div>

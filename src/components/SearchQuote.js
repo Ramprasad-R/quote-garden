@@ -13,7 +13,7 @@ function SearchQuote(props) {
   return (
     <div>
       <nav>
-        <div className="nav-wrapper orange">
+        <div className="nav-wrapper deep-orange lighten-1">
           <form onSubmit={handleSubmit}>
             <div className="input-field">
               <input

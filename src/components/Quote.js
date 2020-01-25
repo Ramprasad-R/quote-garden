@@ -59,7 +59,11 @@ const Quote = props => {
             );
           })
         ) : (
-          <h3>Try someother search word. No quote available for this search</h3>
+          <div>
+            <h5 class="no-content">
+              Try someother search word. No quote available for this search
+            </h5>
+          </div>
         )}
       </div>
     </div>
