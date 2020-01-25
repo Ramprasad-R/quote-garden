@@ -3,25 +3,9 @@ import "./Quote.css";
 const Quote = props => {
   const { quotes, quoteCount } = props;
   const [quoteList, setQuoteList] = useState(quotes);
-  //const [isLiked, setQuoteColor] = useState(false);
   if (!quoteList) {
     setQuoteList([...quotes]);
   }
-  //console.log("quotes", quotes);
-  //console.log("quote list", quoteList);
-
-  // const likeClicked = event => {
-  //   console.log("LikeClicked", event.target.id);
-  //   document.getElementById(event.target.id).style.color = "green";
-  //   //setQuoteColor("green");
-  //   props.increaseTotalLike();
-  // };
-  // const dislikeClicked = event => {
-  //   console.log("DislikeClicked", event);
-  //   document.getElementById(event.target.id).style.color = "red";
-  //   // setQuoteColor("red");
-  //   props.increaseTotalDislike();
-  // };
   return (
     <div>
       <div>
@@ -29,17 +13,14 @@ const Quote = props => {
         <p>Total number of Quote: {quoteCount}</p>
       </div>
       <div>
-        {console.log("quote list", quoteList)}
         {quoteList ? (
           quoteList.map(quote => {
             const likeClicked = event => {
-              //console.log("LikeClicked", event.target.id);
               const updatedQuote = quoteList.map(quote => {
                 return quote._id === event.target.id
                   ? { ...quote, style: "green" }
                   : quote;
               });
-              //console.log("Updated quote", updatedQuote);
               props.increaseTotalLike();
               setQuoteList(updatedQuote);
             };
@@ -49,7 +30,6 @@ const Quote = props => {
                   ? { ...quote, style: "red" }
                   : quote;
               });
-              console.log("Updated quote", updatedQuote);
               props.increaseTotalDislike();
               setQuoteList(updatedQuote);
             };
@@ -70,7 +50,6 @@ const Quote = props => {
                       className="far fa-thumbs-up"
                       onClick={likeClicked}
                     ></i>
-
                     <i
                       id={quote._id}
                       className="far fa-thumbs-down"

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Quote from "./Quote";
 import SearchQuote from "./SearchQuote";
-
 export default class QuoteSearcher extends Component {
   state = {
     loading: true,
@@ -12,7 +11,6 @@ export default class QuoteSearcher extends Component {
     totalDislike: 0,
     searchQuoteUri: "tree"
   };
-
   invokeAPIToFetchQuote = async () => {
     try {
       const quoteData = await fetch(
@@ -30,17 +28,12 @@ export default class QuoteSearcher extends Component {
       });
     }
   };
-
   componentDidMount = async () => this.invokeAPIToFetchQuote();
-
   increaseTotalLike = () =>
     this.setState({ totalLike: this.state.totalLike + 1 });
-
   increaseTotalDislike = () =>
     this.setState({ totalDislike: this.state.totalDislike + 1 });
   triggerSearch = searchText => {
-    //console.log("search text in trigger search", searchText);
-
     this.setState(
       {
         searchQuoteUri: searchText,
@@ -50,16 +43,8 @@ export default class QuoteSearcher extends Component {
         this.invokeAPIToFetchQuote();
       }
     );
-
-    console.log(
-      "Trigger Search",
-      this.state.searchQuoteUri,
-      this.state.loading
-    );
   };
   render() {
-    console.log(this.state.quotes);
-
     return this.state.loading ? (
       <div>Data Loading</div>
     ) : (

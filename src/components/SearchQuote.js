@@ -8,7 +8,6 @@ function SearchQuote(props) {
   };
   const handleSubmit = event => {
     event.preventDefault();
-    console.log("searched Text", searchText);
     searchText && triggerSearch(searchText);
   };
   return (
