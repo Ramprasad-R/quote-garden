@@ -57,7 +57,6 @@ const Quote = props => {
               <div>
                 <div
                   style={{ color: quote.style ? quote.style : "black" }}
-                  testtag={quote.style}
                   id={quote._id}
                   key={quote._id}
                 >

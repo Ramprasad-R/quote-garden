@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Quote from "./Quote";
+import SearchQuote from "./SearchQuote";
 
 export default class QuoteSearcher extends Component {
   state = {
@@ -8,13 +9,13 @@ export default class QuoteSearcher extends Component {
     quotes: [],
     quoteCount: 0,
     totalLike: 0,
-    totalDislike: 0
+    totalDislike: 0,
+    fetchQuoteUrl: "https://quote-garden.herokuapp.com/quotes/all"
   };
-  componentDidMount = async () => {
+
+  invokeAPIToFetchQuote = async () => {
     try {
-      const quoteData = await fetch(
-        "https://quote-garden.herokuapp.com/quotes/all"
-      );
+      const quoteData = await fetch(this.state.fetchQuoteUrl);
       const parsedQuoteData = await quoteData.json();
       this.setState({
         loading: false,
@@ -27,6 +28,9 @@ export default class QuoteSearcher extends Component {
       });
     }
   };
+
+  componentDidMount = async () => this.invokeAPIToFetchQuote();
+
   increaseTotalLike = () =>
     this.setState({ totalLike: this.state.totalLike + 1 });
 
@@ -40,6 +44,9 @@ export default class QuoteSearcher extends Component {
       <div>Data Loading</div>
     ) : (
       <div>
+        <div>
+          <SearchQuote />
+        </div>
         <p>Total number of Like: {this.state.totalLike}</p>
         <p>Total number of Dislike: {this.state.totalDislike}</p>
         <Quote
