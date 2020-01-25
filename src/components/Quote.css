@@ -1,0 +1,36 @@
+.btn-custom-like {
+  margin: 10px;
+  height: 25px !important;
+  line-height: 25px !important;
+  padding: 0 10px !important;
+}
+
+.btn-custom-dislike {
+  margin: 10px;
+  background-color: #a62626 !important;
+  height: 25px !important;
+  line-height: 25px !important;
+  padding: 0 10px !important;
+}
+
+.btn-custom-dislike:hover {
+  background-color: #bb2b2b !important;
+}
+
+.card-title {
+  padding-top: 10px;
+  font-size: 16px !important;
+}
+
+.no-content {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.thumb-up {
+  color: #26a69a;
+}
+
+.thumb-down {
+  color: #a62626;
+}
