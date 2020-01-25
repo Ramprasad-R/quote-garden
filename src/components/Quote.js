@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Quote.css";
 const Quote = props => {
-  const { quotes, quoteCount } = props;
+  const { quotes } = props;
   const [quoteList, setQuoteList] = useState(quotes);
   if (!quoteList) {
     setQuoteList([...quotes]);
@@ -36,22 +36,24 @@ const Quote = props => {
                   id={quote._id}
                   key={quote._id}
                 >
-                  <p>{quote.quoteText}</p>
-                  <p>By: {quote.quoteAuthor}</p>
-                </div>
-                <div>
-                  <p>
-                    <i
-                      id={quote._id}
-                      className="far fa-thumbs-up"
-                      onClick={likeClicked}
-                    ></i>
-                    <i
-                      id={quote._id}
-                      className="far fa-thumbs-down"
-                      onClick={dislikeClicked}
-                    ></i>
-                  </p>
+                  <div className="card">
+                    <div className="card-body">
+                      <h5 className="card-title">{quote.quoteText}</h5>
+                      <p className="card-text">By: {quote.quoteAuthor}</p>
+                    </div>
+                    <p>
+                      <i
+                        id={quote._id}
+                        className="far fa-thumbs-up btn btn-Primary btn-custom-like"
+                        onClick={likeClicked}
+                      ></i>
+                      <i
+                        id={quote._id}
+                        className="far fa-thumbs-down btn btn-Secondary btn-custom-dislike"
+                        onClick={dislikeClicked}
+                      ></i>
+                    </p>
+                  </div>
                 </div>
               </div>
             );

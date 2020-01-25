@@ -11,20 +11,23 @@ function SearchQuote(props) {
     searchText && triggerSearch(searchText);
   };
   return (
-    <div>
-      <div>
+    <nav>
+      <div className="nav-wrapper">
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            onChange={handleChange}
-            name="searchQuote"
-            value={searchText}
-            placeholder="Search Quotes"
-          />
-          <button type="submit">Search</button>
+          <div className="input-field">
+            <input
+              type="text"
+              onChange={handleChange}
+              name="searchQuote"
+              value={searchText}
+            />
+            <label className="label-icon" for="search">
+              <i className="material-icons">search quote</i>
+            </label>
+          </div>
         </form>
       </div>
-    </div>
+    </nav>
   );
 }
 

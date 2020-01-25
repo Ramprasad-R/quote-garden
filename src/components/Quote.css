@@ -1,9 +1,12 @@
-.likeClicked {
-  color: green;
-  font-weight: bold;
+.btn-custom-like {
+  margin: 10px;
 }
 
-.dislikeClicked {
-  color: red;
-  font-weight: lighter;
+.btn-custom-dislike {
+  margin: 10px;
+  background-color: #a62626;
+}
+
+.btn-custom-dislike:hover {
+  background-color: #bb2b2b;
 }
