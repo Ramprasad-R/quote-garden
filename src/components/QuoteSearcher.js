@@ -17,10 +17,15 @@ export default class QuoteSearcher extends Component {
         `https://quote-garden.herokuapp.com/quotes/search/${this.state.searchQuoteUri}`
       );
       const parsedQuoteData = await quoteData.json();
+      const uniqueQuote = [
+        ...new Map(
+          parsedQuoteData.results.map(item => [item["quoteText"], item])
+        ).values()
+      ];
       this.setState({
         loading: false,
-        quotes: parsedQuoteData.results,
-        quoteCount: parsedQuoteData.count
+        quotes: uniqueQuote,
+        quoteCount: uniqueQuote.length
       });
     } catch (error) {
       this.setState({
