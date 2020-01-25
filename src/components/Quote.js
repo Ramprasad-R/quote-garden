@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import "./Quote.css";
 const Quote = props => {
   const { quotes, quoteCount } = props;
-  // const [quoteColor, setQuoteColor] = useState("");
+  const [quoteList, setQuoteList] = useState(quotes);
+  if (!quoteList) {
+    setQuoteList([...quotes]);
+  }
+  console.log("quotes", quotes);
+  console.log("quote list", quoteList);
+
+  const [isLiked, setQuoteColor] = useState(false);
   const likeClicked = event => {
     console.log("LikeClicked", event.target.id);
     document.getElementById(event.target.id).style.color = "green";
@@ -22,8 +29,9 @@ const Quote = props => {
         <p>Total number of Quote: {quoteCount}</p>
       </div>
       <div>
-        {quotes ? (
-          quotes.map(quote => {
+        {console.log("quote list", quoteList)}
+        {quoteList ? (
+          quoteList.map(quote => {
             return (
               <div>
                 <div style={{ color: "black" }} id={quote._id} key={quote._id}>
