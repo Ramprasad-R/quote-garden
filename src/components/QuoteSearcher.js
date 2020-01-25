@@ -36,7 +36,21 @@ export default class QuoteSearcher extends Component {
 
   increaseTotalDislike = () =>
     this.setState({ totalDislike: this.state.totalDislike + 1 });
+  triggerSearch = searchText => {
+    //console.log("search text in trigger search", searchText);
 
+    this.setState(
+      {
+        fetchQuoteUrl: `https://quote-garden.herokuapp.com/quotes/search/${searchText}`,
+        loading: true
+      },
+      () => {
+        this.invokeAPIToFetchQuote();
+      }
+    );
+
+    console.log("Trigger Search", this.state.fetchQuoteUrl, this.state.loading);
+  };
   render() {
     console.log(this.state.quotes);
 
@@ -45,7 +59,7 @@ export default class QuoteSearcher extends Component {
     ) : (
       <div>
         <div>
-          <SearchQuote />
+          <SearchQuote triggerSearch={this.triggerSearch} />
         </div>
         <p>Total number of Like: {this.state.totalLike}</p>
         <p>Total number of Dislike: {this.state.totalDislike}</p>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-function SearchQuote() {
+function SearchQuote(props) {
+  const { triggerSearch } = props;
   const [searchText, setSearchText] = useState("");
   const handleChange = event => {
     setSearchText(event.target.value);
@@ -8,6 +9,7 @@ function SearchQuote() {
   const handleSubmit = event => {
     event.preventDefault();
     console.log("searched Text", searchText);
+    searchText && triggerSearch(searchText);
   };
   return (
     <div>
