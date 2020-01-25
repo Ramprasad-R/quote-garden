@@ -11,23 +11,26 @@ function SearchQuote(props) {
     searchText && triggerSearch(searchText);
   };
   return (
-    <nav>
-      <div className="nav-wrapper">
-        <form onSubmit={handleSubmit}>
-          <div className="input-field">
-            <input
-              type="text"
-              onChange={handleChange}
-              name="searchQuote"
-              value={searchText}
-            />
-            <label className="label-icon" for="search">
-              <i className="material-icons">search quote</i>
-            </label>
-          </div>
-        </form>
-      </div>
-    </nav>
+    <div>
+      <nav>
+        <div className="nav-wrapper orange">
+          <form onSubmit={handleSubmit}>
+            <div className="input-field">
+              <input
+                id="search"
+                type="search"
+                onChange={handleChange}
+                name="searchQuote"
+                value={searchText}
+              />
+              <label className="label-icon" for="search">
+                <i className="material-icons">search quote</i>
+              </label>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>
   );
 }
 

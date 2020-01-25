@@ -9,7 +9,7 @@ const Quote = props => {
   return (
     <div>
       <div>
-        {quoteList ? (
+        {quoteList.length > 0 ? (
           quoteList.map(quote => {
             const likeClicked = event => {
               const updatedQuote = quoteList.map(quote => {

@@ -65,10 +65,30 @@ export default class QuoteSearcher extends Component {
           <SearchQuote triggerSearch={this.triggerSearch} />
         </div>
         <div>
-          <p>Total number of Quote: {this.state.quoteCount}</p>
+          <ul class="collapsible">
+            <li>
+              <div class="collapsible-header">
+                <i class="material-icons">done_all</i>
+                Total number of Quotes
+                <span class="badge">{this.state.quoteCount}</span>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">
+                <i class="material-icons">thumb_up</i>
+                Total Likes
+                <span class="badge">{this.state.totalLike}</span>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">
+                <i class="material-icons ">thumb_down</i>
+                Total Dislikes
+                <span class="badge">{this.state.totalDislike}</span>
+              </div>
+            </li>
+          </ul>
         </div>
-        <p>Total number of Like: {this.state.totalLike}</p>
-        <p>Total number of Dislike: {this.state.totalDislike}</p>
         <Quote
           increaseTotalLike={this.increaseTotalLike}
           increaseTotalDislike={this.increaseTotalDislike}
