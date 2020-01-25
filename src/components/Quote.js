@@ -3,9 +3,6 @@ import "./Quote.css";
 const Quote = props => {
   const { quotes } = props;
   const [quoteList, setQuoteList] = useState(quotes);
-  if (!quoteList) {
-    setQuoteList([...quotes]);
-  }
   return (
     <div>
       <div>
