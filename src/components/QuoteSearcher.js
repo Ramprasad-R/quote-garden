@@ -52,6 +52,9 @@ export default class QuoteSearcher extends Component {
         <div>
           <SearchQuote triggerSearch={this.triggerSearch} />
         </div>
+        <div>
+          <p>Total number of Quote: {this.state.quoteCount}</p>
+        </div>
         <p>Total number of Like: {this.state.totalLike}</p>
         <p>Total number of Dislike: {this.state.totalDislike}</p>
         <Quote

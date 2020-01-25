@@ -9,10 +9,6 @@ const Quote = props => {
   return (
     <div>
       <div>
-        <h1>Quotes</h1>
-        <p>Total number of Quote: {quoteCount}</p>
-      </div>
-      <div>
         {quoteList ? (
           quoteList.map(quote => {
             const likeClicked = event => {
